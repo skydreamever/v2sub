@@ -14,9 +14,9 @@ from v2sub import utils
 @click.group()
 def cli():
     """A v2ray subscriber written by python3"""
-    if os.getuid() != 0:
-        click.echo("Please run as root.")
-        sys.exit(1)
+#     if os.getuid() != 0:
+#         click.echo("Please run as root.")
+#         sys.exit(1)
     subscribe.init()
 
 
