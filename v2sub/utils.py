@@ -46,7 +46,7 @@ def echo_node(index, node, delay=None):
 
 def restart_server():
     click.echo("Going to restart v2ray service...")
-    result = call("systemctl restart v2ray.service", shell=True)
+    result = call("brew services restart v2ray/v2ray/v2ray-core", shell=True)
     if result == 0:
         click.echo("Done...")
     else:
