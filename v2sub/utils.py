@@ -54,21 +54,22 @@ def restart_server():
 
 
 def _ping(ip, times=3, timeout=1, interval=0.2):
-    cmd = [
-        'ping',
-        '-n',
-        '-W%d' % timeout,
-        '-c%d' % times,
-        "-i%f" % interval,
-        ip
-    ]
-    proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
-    output, _ = proc.communicate()
-    reg = r'min/avg/max/mdev = ([0-9]+.[0-9]+)/([0-9]+.[0-9]+)'
-    s = re.search(reg, str(output))
-    if s:
-        return float(s.group(2))
-    return -1
+    # cmd = [
+    #     'ping',
+    #     '-n',
+    #     '-W%d' % timeout,
+    #     '-c%d' % times,
+    #     "-i%f" % interval,
+    #     ip
+    # ]
+    # proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
+    # output, _ = proc.communicate()
+    # reg = r'min/avg/max/mdev = ([0-9]+.[0-9]+)/([0-9]+.[0-9]+)'
+    # s = re.search(reg, str(output))
+    # if s:
+    #     return float(s.group(2))
+    # return -1
+    return 0.0
 
 
 def ping(name=DEFAULT_SUBSCRIBE, index=None, all_servers=None):
