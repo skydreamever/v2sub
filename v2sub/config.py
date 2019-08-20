@@ -106,6 +106,6 @@ def _get_config(addr: str, port: int, id_: str, alterId="0", network="tcp", type
 
 def update_config(node: dict, client_port: int):
     v2ray_config = _get_config(addr=node['add'], port=int(node['port']), 
-                    id_=node['id'], alterId=note['aid'], network=node['net'], type=node['type'], 
+                    id_=node['id'], alterId=node['aid'], network=node['net'], type=node['type'], 
                     tls=node['tls'], client_port=client_port)
     utils.write_to_json(v2ray_config, V2RAY_CONFIG_FILE)
