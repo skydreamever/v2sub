@@ -54,7 +54,7 @@ def restart_server():
     time.sleep(5)
 
     #执行v2ray
-    result = call("v2ray -config=/usr/local/etc/v2ray/config.json", shell=True)
+    result = call("/usr/local/bin/v2ray -config=/usr/local/etc/v2ray/config.json", shell=True)
     if result == 0:
         click.echo("Done...")
     else:
