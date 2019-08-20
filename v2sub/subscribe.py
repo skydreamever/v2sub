@@ -17,17 +17,15 @@ def init():
     if not os.path.exists(BASE_PATH):
         os.makedirs(BASE_PATH)
     if not os.path.exists(SUBSCRIBE_CONFIG):
-        os.mknod(SUBSCRIBE_CONFIG)
+        open(SUBSCRIBE_CONFIG, 'w').close()
     if not os.path.exists(SERVER_CONFIG):
-        os.mknod(SERVER_CONFIG)
-
+        open(SERVER_CONFIG, 'w').close()
 
 def add_subscribe(url, name=DEFAULT_SUBSCRIBE):
     subscribe = utils.read_from_json(SUBSCRIBE_CONFIG)
     subscribe.update({name: url})
     utils.write_to_json(subscribe, SUBSCRIBE_CONFIG)
     click.echo("Added subscribe: %s" % url)
-
 
 def list_subscribe():
     subscribe = utils.read_from_json(SUBSCRIBE_CONFIG)
