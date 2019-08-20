@@ -46,7 +46,14 @@ def echo_node(index, node, delay=None):
 
 def restart_server():
     click.echo("Going to restart v2ray service...")
-    result = call("/usr/local/bin/brew services restart v2ray/v2ray/v2ray-core", shell=True)
+    #结束存在的v2ray进程和v2sub进程
+    call("pkill v2ray", shell=True)
+    call("pkill v2sub", shell=True)
+    #等待一段时间
+    time.sleep(5)
+
+    #执行v2ray
+    result = call("v2ray -config=/usr/local/etc/v2ray/config.json", shell=True)
     if result == 0:
         click.echo("Done...")
     else:
