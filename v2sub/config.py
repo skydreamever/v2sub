@@ -13,7 +13,7 @@ def _get_config(addr: str, port: int, id_: str, alterId="0", network="tcp", type
                 "ip": "",
                 "userLevel": 0,
                 "timeout": 360,
-                "udp": true,
+                "udp": 'true',
                 "auth": "noauth"
             },
             "port": client_port
@@ -22,7 +22,7 @@ def _get_config(addr: str, port: int, id_: str, alterId="0", network="tcp", type
         "outbounds": [
             {
             "mux": {
-                "enabled": false,
+                "enabled": 'false',
                 "concurrency": 8
             },
             "protocol": "vmess",
@@ -33,7 +33,7 @@ def _get_config(addr: str, port: int, id_: str, alterId="0", network="tcp", type
                 }
                 },
                 "tlsSettings": {
-                "allowInsecure": true
+                "allowInsecure": 'true'
                 },
                 "security": tls,
                 "network": network
