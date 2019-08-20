@@ -1,6 +1,7 @@
 import json
 import re
 import sys
+import time
 from subprocess import call, Popen, PIPE
 
 import click
