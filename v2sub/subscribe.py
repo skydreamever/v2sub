@@ -69,11 +69,13 @@ def parser_subscribe(url, name=DEFAULT_SUBSCRIBE):
                    " sure you entered the correct URL!")
         sys.exit(1)
     correct_base64 = str(resp.content, 'utf-8') + '=' * (-len(str(resp.content, 'utf-8')) % 4)
+    print(correct_base64)
     nodes = base64.b64decode(correct_base64).splitlines()
     servers = []
     for node in nodes:
         node = utils.byte2str(node).replace("vmess://", "")
-        node = utils.byte2str(base64.b64decode(node))
+        correct_base64 = node + '=' * (-len(node) % 4)
+        node = utils.byte2str(base64.b64decode(correct_base64))
         servers.append(json.loads(node))
     all_servers = utils.read_from_json(SERVER_CONFIG)
     all_servers.update({name: servers})
