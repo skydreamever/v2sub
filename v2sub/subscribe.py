@@ -68,7 +68,7 @@ def parser_subscribe(url, name=DEFAULT_SUBSCRIBE):
         click.echo("Can't parse the url, please check your network or make"
                    " sure you entered the correct URL!")
         sys.exit(1)
-    correct_base64 = str(resp.content) + '=' * (-len(str(resp.content)) % 4)
+    correct_base64 = str(resp.content, 'utf-8') + '=' * (-len(str(resp.content, 'utf-8')) % 4)
     nodes = base64.b64decode(correct_base64).splitlines()
     servers = []
     for node in nodes:
